@@ -13,6 +13,49 @@
       />
       <link href="./output.css" rel="stylesheet" />
     </head>
+    
+    <style>
+      @media (max-width: 700px) {
+        /* Muda o grid principal de 3 colunas para apenas 1 */
+        #grid-container {
+          grid-template-columns: 1fr;
+        }
+
+        /* Transforma o menu lateral de animais em uma lista horizontal com scroll */
+        #sidenav-animais ul {
+          display: flex;
+          overflow-x: auto; /* Permite rolar horizontalmente */
+          gap: 10px;
+          padding: 20px 10px;
+        }
+
+        #sidenav-animais ul li {
+          margin-bottom: 0; /* Remove a margem inferior original */
+          flex-shrink: 0; /* Impede que os ícones encolham */
+        }
+        
+        #sidenav-animais ul li img {
+            margin-bottom: 0; /* Remove a margem inferior original */
+        }
+
+        /* Muda o grid do conteúdo principal de 2 colunas para apenas 1 */
+        #main-content {
+          grid-template-columns: 1fr;
+        }
+        
+        /* Reseta o posicionamento específico da imagem do lobo no grid */
+        #wolf1-img {
+          grid-row: auto;
+        }
+
+        /* Ajusta o header para telas pequenas */
+        header {
+          flex-direction: column; /* Empilha o logo e o menu */
+          gap: 20px;
+        }
+      }
+    </style>
+
   </head>
   <body>
     <header
@@ -21,7 +64,7 @@
       <a href="#"><img src="/img/wildbeast.svg" alt="" class="w-50" /></a>
       <nav>
         <ul class="flex text-white flex-wrap">
-          <li ">
+          <li >
             <a
               href="#"
               class="block p-[10px] text-[18px] hover:bg-black/40 transition-colors duration-300 ease-in-out bg-black/10 rounded-md font-['Volkorn']"
@@ -45,8 +88,10 @@
         </ul>
       </nav>
     </header>
-    <div class="grid grid-cols-[minmax(160px,_1fr)_3fr_300px]  ">
-      <nav class="bg-[#FAFBFC] p-[30px]">
+    
+    <div id="grid-container" class="grid grid-cols-[minmax(160px,_1fr)_3fr_300px]">
+      
+      <nav id="sidenav-animais" class="bg-[#FAFBFC] p-[30px]">
         <ul>
           <li class="">
             <a href="#"><img src="/img/icones/abelha.svg" alt="" class="block w-36 mx-auto mt-0 mb-[30px] bg-white p-[20px] rounded-[5px] shadow-[5px_5px_15px_0px_rgba(44,44,44,0.15)] hover:bg-[#b07dfb] transition-colors duration-600 ease-in-out"/></a>
@@ -68,12 +113,13 @@
           </li>
         </ul>
       </nav>
-      <main class="mx-auto p-[30px] font-['Volkorn'] text-[#2c2c2c] leading-[1.8] grid grid-cols-2 gap-[30px] ">
+      
+      <main id="main-content" class="mx-auto p-[30px] font-['Volkorn'] text-[#2c2c2c] leading-[1.8] grid grid-cols-2 gap-[30px] ">
         <div class="">
           <h1 class="text-purple-400 text-[3.75em] leading-none font-bold">Lobo Cinza</h1>
           <span class="text-purple-400">da família canis lupus</span>
         </div>
-         <div class="flex gap-5">
+          <div class="flex gap-5">
         
         <div class="flex flex-col rounded-lg overflow-hidden shadow-[5px_5px_15px_0px_rgba(44,44,44,0.15)] ">
             <span class="bg-purple-600 text-center p-5 text-5xl font-bold text-purple-200">72</span>
@@ -90,7 +136,9 @@
           cerca de 300 mil anos atrás.[2] O sequenciamento de DNA e estudos
           genéticos reafirmam que o lobo cinzento é ancestral do cão doméstico
         </p>
-        <img src="/img/wolf1.jpg" alt=""  class="row-start-3 row-end-5 self-end rounded-[8px] w-full"/>
+        
+        <img id="wolf1-img" src="/img/wolf1.jpg" alt=""  class="row-start-3 row-end-5 self-end rounded-[8px] w-full"/>
+
         <p class=" leading-[1.6] text-[0.875em] max-w-[16em] tracking-[-0.005em] text-purple-400">
           É um sobrevivente da Era do Gelo, originário do Pleistoceno Superior,
           cerca de 300 mil anos atrás.[2] O sequenciamento de DNA e estudos.
@@ -108,19 +156,19 @@
           25 kg.[7] Embora raros, lobos com mais de 77 kg foram encontrados no
           Alasca, Canadá,[8] e na antiga União Soviética.
         </p>
-        <blockquote class="col-span-full p-[30px] rounded-[5px] bg-[linear-gradient(135deg,_#8844ee,_#B07DFB)] shadow-[5px_5px_15px_0px_rgba(44,44,44,0.15)]">
-          <p class="col-span-full leading-[1.6] text-[1.2em] tracking-[-0.005em] text-white text-center ">
+        <blockquote class="col-span-full rounded-[5px] bg-[linear-gradient(135deg,_#8844ee,_#B07DFB)] shadow-[5px_5px_15px_0px_rgba(44,44,44,0.15)] p-[30px]">
+          <p class="col-span-full leading-[1.6] text-[1.5em] tracking-[-0.005em] text-white text-center italic max-w-[500px] mx-auto">
             “Há algo no uivar do lobo que tira um homem do aqui e agora e o
             transporta para uma floresta da mente.”
           </p>
         </blockquote>
-        <ul class="">
-          <li>Surgiu: 12.000 anos</li>
-          <li>Tipo: Mamífero</li>
-          <li>Idade Média: 13 anos</li>
-          <li>Macho adulto: 80kg</li>
-          <li>Fêmea adulta: 55kg</li>
-          <li>Família: Lupus</li>
+        <ul class="rounded-[5px] bg-[linear-gradient(135deg,_#8844ee,_#B07DFB)] shadow-[5px_5px_15px_0px_rgba(44,44,44,0.15)] text-white font-sans text-[1.125em] p-[15px] font-bold">
+          <li class="p-[15px] border-b-2 border-[#B07DFB]">Surgiu: 12.000 anos</li>
+          <li class="p-[15px] border-b-2 border-[#B07DFB]">Tipo: Mamífero</li>
+          <li class="p-[15px] border-b-2 border-[#B07DFB]">Idade Média: 13 anos</li>
+          <li class="p-[15px] border-b-2 border-[#B07DFB]">Macho adulto: 80kg</li>
+          <li class="p-[15px] border-b-2 border-[#B07DFB]">Fêmea adulta: 55kg</li>
+          <li class="p-[15px] ">Família: Lupus</li>
         </ul>
         <div class="">
           <p class="leading-[1.6] text-[1.2em] tracking-[-0.005em] text-black/70">
@@ -143,7 +191,7 @@
           <img src="/img/anuncio-1.jpg" alt="" class="block rounded-[8px]" /> 
         </div>
         <div>
-          <img src="/img/anuncio-2.jpg" alt="" class="block rounded-[8px]"   />
+          <img src="/img/anuncio-2.jpg" alt="" class="block rounded-[8px]"  />
         </div>
       </aside>
     </div>
